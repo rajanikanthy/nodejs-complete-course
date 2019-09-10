@@ -2,11 +2,11 @@ extends layout
 
 block content
   h1= title
-  div(class='card' style='width: 80%')
-    ul(class='list-group list-group-flush')
-      each team in teams
-        li(class="list-group-item")
-          h3=team.teamName
-          p="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pellentesque justo nulla, eu condimentum dolor pulvinar a. Morbi pulvinar sapien risus, id accumsan enim suscipit ut. Nulla cursus urna eu eros bibendum, eu pellentesque risus maximus. Duis nisl nisl, auctor in ante vel, mattis posuere ligula. Aliquam erat volutpat. Donec varius pulvinar lobortis. Nulla facilisi. Sed at pharetra est, eu pretium lectus. Donec eleifend metus dui, vitae faucibus erat scelerisque nec. Aliquam porttitor mauris mauris, ac faucibus tellus volutpat sit amet. Integer posuere nisl dolor, ac imperdiet quam molestie ac."
-          a(href=`/players?team=${team.teamName}` class="btn btn-primary")="Show Roster"
+  div(class="row")
+    each team in teams
+     div(class="col-sm-1")
+      div(class='card')
+        img(class="card-img-top" src=team.imgURL alt="Img Unavailable")
+        div(class='card-body')
+          h5=team.name
           

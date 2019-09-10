@@ -4,220 +4,186 @@ const router = express.Router();
 
 
 const teams = [
-    {
-      "teamId": 1610612737,
-      "abbreviation": "ATL",
-      "teamName": "Atlanta Hawks",
-      "simpleName": "Hawks",
-      "location": "Atlanta",
-      "description": "The Atlanta Hawks are an American professional basketball team based in Atlanta, Georgia. The Hawks compete in the National Basketball Association (NBA) as a member of the league's Eastern Conference Southeast Division. The team plays its home games at State Farm Arena.The team's origins can be traced to the establishment of the Buffalo Bisons in 1946 in Buffalo, New York, a member of the National Basketball League (NBL) owned by Ben Kerner and Leo Ferris.[9] After 38 days in Buffalo, the team moved to Moline, Illinois, where they were renamed the Tri-Cities Blackhawks.[10] In 1949, they joined the NBA as part of the merger between the NBL and the Basketball Association of America (BAA), and briefly had Red Auerbach as coach. In 1951, Kerner moved the team to Milwaukee, where they changed their name to the Hawks. Kerner and the team moved again in 1955 to St. Louis, where they won their only NBA Championship in 1958 and qualified to play in the NBA Finals in 1957, 1960 and 1961. The Hawks played the Boston Celtics in all four of their trips to the NBA Finals. The St. Louis Hawks moved to Atlanta in 1968, when Kerner sold the franchise to Thomas Cousins and former Georgia Governor Carl Sanders.[11][12]"
-    },
-    {
-      "teamId": 1610612738,
-      "abbreviation": "BOS",
-      "teamName": "Boston Celtics",
-      "simpleName": "Celtics",
-      "location": "Boston",
-      "description": "The Boston Celtics are an American professional basketball team based in Boston, Massachusetts. The Celtics compete in the National Basketball Association (NBA) as a member of the league's Eastern Conference Atlantic Division. Founded in 1946 as one of the league's original eight teams, the team play their home games at TD Garden, which they share with the National Hockey League (NHL)'s Boston Bruins. The Celtics are one of the most successful teams in NBA history; the franchise has won the most championships in the NBA with 17, accounting for 23.9 percent of all NBA championships since the league's founding.[8][9] The Celtics have a notable rivalry with the Los Angeles Lakers, who have won 16 NBA championships, second behind the Celtics. The rivalry was heavily highlighted throughout the 1960s and 1980s. The franchise has played the Lakers a record 12 times in the NBA Finals (including their most recent appearances in 2008 and 2010), of which the Celtics have won nine.[10] Four Celtics players (Bob Cousy, Bill Russell, Dave Cowens and Larry Bird) have won the NBA Most Valuable Player Award for an NBA record total of 10 MVP awards.[11] Both the nickname \"Celtics\" and their mascot \"Lucky the Leprechaun\" are a nod to Boston's historically large Irish population.[12]"
-    },
-    {
-      "teamId": 1610612751,
-      "abbreviation": "BKN",
-      "teamName": "Brooklyn Nets",
-      "simpleName": "Nets",
-      "location": "Brooklyn",
-      "description": "The Brooklyn Nets are an American professional basketball team based in the New York City borough of Brooklyn. The Nets compete in the National Basketball Association (NBA) as a member of the Atlantic Division of the Eastern Conference. The team plays its home games at Barclays Center. They are one of two NBA teams located in New York City; the other is the New York Knicks. The team was established in 1967 as a charter franchise of the NBA's rival league, the American Basketball Association (ABA). They played in New Jersey as the New Jersey Americans during their first season, before moving to Long Island in 1968 and changing their name to the New York Nets. During this time, the Nets won two ABA championships (in 1974 and 1976). In 1976, the ABA merged with the NBA, and the Nets were absorbed into the NBA along with three other ABA teams (the San Antonio Spurs, Indiana Pacers, and Denver Nuggets, all of whom remain in the league today)."
-    },
-    {
-      "teamId": 1610612766,
-      "abbreviation": "CHA",
-      "teamName": "Charlotte Hornets",
-      "simpleName": "Hornets",
-      "location": "Charlotte"
-    },
-    {
-      "teamId": 1610612741,
-      "abbreviation": "CHI",
-      "teamName": "Chicago Bulls",
-      "simpleName": "Bulls",
-      "location": "Chicago"
-    },
-    {
-      "teamId": 1610612739,
-      "abbreviation": "CLE",
-      "teamName": "Cleveland Cavaliers",
-      "simpleName": "Cavaliers",
-      "location": "Cleveland"
-    },
-    {
-      "teamId": 1610612742,
-      "abbreviation": "DAL",
-      "teamName": "Dallas Mavericks",
-      "simpleName": "Mavericks",
-      "location": "Dallas"
-    },
-    {
-      "teamId": 1610612743,
-      "abbreviation": "DEN",
-      "teamName": "Denver Nuggets",
-      "simpleName": "Nuggets",
-      "location": "Denver"
-    },
-    {
-      "teamId": 1610612765,
-      "abbreviation": "DET",
-      "teamName": "Detroit Pistons",
-      "simpleName": "Pistons",
-      "location": "Detroit"
-    },
-    {
-      "teamId": 1610612744,
-      "abbreviation": "GSW",
-      "teamName": "Golden State Warriors",
-      "simpleName": "Warriors",
-      "location": "Golden State"
-    },
-    {
-      "teamId": 1610612745,
-      "abbreviation": "HOU",
-      "teamName": "Houston Rockets",
-      "simpleName": "Rockets",
-      "location": "Houston"
-    },
-    {
-      "teamId": 1610612754,
-      "abbreviation": "IND",
-      "teamName": "Indiana Pacers",
-      "simpleName": "Pacers",
-      "location": "Indiana"
-    },
-    {
-      "teamId": 1610612746,
-      "abbreviation": "LAC",
-      "teamName": "Los Angeles Clippers",
-      "simpleName": "Clippers",
-      "location": "Los Angeles"
-    },
-    {
-      "teamId": 1610612747,
-      "abbreviation": "LAL",
-      "teamName": "Los Angeles Lakers",
-      "simpleName": "Lakers",
-      "location": "Los Angeles"
-    },
-    {
-      "teamId": 1610612763,
-      "abbreviation": "MEM",
-      "teamName": "Memphis Grizzlies",
-      "simpleName": "Grizzlies",
-      "location": "Memphis"
-    },
-    {
-      "teamId": 1610612748,
-      "abbreviation": "MIA",
-      "teamName": "Miami Heat",
-      "simpleName": "Heat",
-      "location": "Miami"
-    },
-    {
-      "teamId": 1610612749,
-      "abbreviation": "MIL",
-      "teamName": "Milwaukee Bucks",
-      "simpleName": "Bucks",
-      "location": "Milwaukee"
-    },
-    {
-      "teamId": 1610612750,
-      "abbreviation": "MIN",
-      "teamName": "Minnesota Timberwolves",
-      "simpleName": "Timberwolves",
-      "location": "Minnesota"
-    },
-    {
-      "teamId": 1610612740,
-      "abbreviation": "NOP",
-      "teamName": "New Orleans Pelicans",
-      "simpleName": "Pelicans",
-      "location": "New Orleans"
-    },
-    {
-      "teamId": 1610612752,
-      "abbreviation": "NYK",
-      "teamName": "New York Knicks",
-      "simpleName": "Knicks",
-      "location": "New York"
-    },
-    {
-      "teamId": 1610612760,
-      "abbreviation": "OKC",
-      "teamName": "Oklahoma City Thunder",
-      "simpleName": "Thunder",
-      "location": "Oklahoma City"
-    },
-    {
-      "teamId": 1610612753,
-      "abbreviation": "ORL",
-      "teamName": "Orlando Magic",
-      "simpleName": "Magic",
-      "location": "Orlando"
-    },
-    {
-      "teamId": 1610612755,
-      "abbreviation": "PHI",
-      "teamName": "Philadelphia 76ers",
-      "simpleName": "76ers",
-      "location": "Philadelphia"
-    },
-    {
-      "teamId": 1610612756,
-      "abbreviation": "PHX",
-      "teamName": "Phoenix Suns",
-      "simpleName": "Suns",
-      "location": "Phoenix"
-    },
-    {
-      "teamId": 1610612757,
-      "abbreviation": "POR",
-      "teamName": "Portland Trail Blazers",
-      "simpleName": "Trail Blazers",
-      "location": "Portland"
-    },
-    {
-      "teamId": 1610612758,
-      "abbreviation": "SAC",
-      "teamName": "Sacramento Kings",
-      "simpleName": "Kings",
-      "location": "Sacramento"
-    },
-    {
-      "teamId": 1610612759,
-      "abbreviation": "SAS",
-      "teamName": "San Antonio Spurs",
-      "simpleName": "Spurs",
-      "location": "San Antonio"
-    },
-    {
-      "teamId": 1610612761,
-      "abbreviation": "TOR",
-      "teamName": "Toronto Raptors",
-      "simpleName": "Raptors",
-      "location": "Toronto"
-    },
-    {
-      "teamId": 1610612762,
-      "abbreviation": "UTA",
-      "teamName": "Utah Jazz",
-      "simpleName": "Jazz",
-      "location": "Utah"
-    },
-    {
-      "teamId": 1610612764,
-      "abbreviation": "WAS",
-      "teamName": "Washington Wizards",
-      "simpleName": "Wizards",
-      "location": "Washington"
-    }
-  ]
+  {
+      "tid": 0, "cid": 0, "did": 2,
+      "region": "Atlanta", "name": "Hawks", "abbrev": "ATL", "pop": 5.8, "strategy": "rebuilding",
+      "stadiumCapacity": 18118,
+      "imgURL": "http://i.imgur.com/w4iqpAJ.png"
+  },
+  {
+      "tid": 1, "cid": 0, "did": 0,
+      "region": "Boston", "name": "Celtics", "abbrev": "BOS", "pop": 4.6, "strategy": "contending",
+      "stadiumCapacity": 18624,
+      "imgURL": "http://i.imgur.com/xKp3GGG.png"
+  },
+  {
+      "tid": 2, "cid": 0, "did": 0,
+      "region": "Brooklyn", "name": "Nets", "abbrev": "BKN", "pop": 19.1, "strategy": "contending",
+      "stadiumCapacity": 17732,
+      "imgURL": "http://i.imgur.com/FFpCgxk.png"
+  },
+  {
+      "tid": 3, "cid": 0, "did": 2,
+      "region": "Charlotte", "name": "Hornets", "abbrev": "CHA", "pop": 2.5, "strategy": "Jordancrying",
+      "stadiumCapacity": 19077,
+      "imgURL": "http://i.imgur.com/hW7G08N.png"
+  },
+  {
+      "tid": 4, "cid": 0, "did": 1,
+      "region": "Chicago", "name": "Bulls", "abbrev": "CHI", "pop": 9.5, "strategy": "contending",
+      "stadiumCapacity": 20917,
+      "imgURL": "http://i.imgur.com/rZ3SS1g.png"
+  },
+  {
+      "tid": 5, "cid": 0, "did": 1,
+      "region": "Cleveland", "name": "Cavaliers", "abbrev": "CLE", "pop": 2.1, "strategy": "rebuilding",
+      "stadiumCapacity": 20562,
+      "imgURL": "http://fr.global.nba.com/media/img/teams/logos/CLE_logo.svg"
+  },
+  {
+      "tid": 6, "cid": 1, "did": 3,
+      "region": "Dallas", "name": "Mavericks", "abbrev": "DAL", "pop": 7.2, "strategy": "rebuilding",
+      "stadiumCapacity": 19200,
+      "imgURL": "http://fr.global.nba.com/media/img/teams/logos/DAL_logo.svg"
+  },
+  {
+      "tid": 7, "cid": 1, "did": 4,
+      "region": "Denver", "name": "Nuggets", "abbrev": "DEN", "pop": 2.9, "strategy": "contending",
+      "stadiumCapacity": 19155,
+      "imgURL": "https://i.imgur.com/7v5x4Eu.png"
+  },
+  {
+      "tid": 8, "cid": 0, "did": 1,
+      "region": "Detroit", "name": "Pistons", "abbrev": "DET", "pop": 4.3, "strategy": "contending",
+      "stadiumCapacity": 20491,
+      "imgURL": "http://fr.global.nba.com/media/img/teams/logos/DET_logo.svg"
+  },
+  {
+      "tid": 9, "cid": 1, "did": 5,
+      "region": "Golden State", "name": "Warriors", "abbrev": "GSW", "pop": 4.7, "strategy": "contending",
+      "stadiumCapacity": 18064,
+      "imgURL": "https://i.imgur.com/lPL67qh.png"
+  },
+  {
+      "tid": 10, "cid": 1, "did": 3,
+      "region": "Houston", "name": "Rockets", "abbrev": "HOU", "pop": 6.3, "strategy": "contending",
+      "stadiumCapacity": 18055,
+      "imgURL": "https://i.imgur.com/nrigz17.png"
+  },
+  {
+      "tid": 11, "cid": 0, "did": 1,
+      "region": "Indiana", "name": "Pacers", "abbrev": "IND", "pop": 2, "strategy": "contending",
+      "stadiumCapacity": 17923,
+      "imgURL": "https://i.imgur.com/9MYESXY.png"
+  },
+  {
+      "tid": 12, "cid": 1, "did": 5,
+      "region": "Los Angeles", "name": "Clippers", "abbrev": "LAC", "pop": 13.1, "strategy": "contending",
+      "stadiumCapacity": 19060,
+      "imgURL": "http://i.imgur.com/PLcT06l.png"
+  },
+  {
+      "tid": 13, "cid": 1, "did": 5,
+      "region": "Los Angeles", "name": "Lakers", "abbrev": "LAL", "pop": 13.1, "strategy": "contending",
+      "stadiumCapacity": 18997,
+      "imgURL": "http://i.imgur.com/vDHR32y.png"
+  },
+  {
+      "tid": 14, "cid": 1, "did": 3,
+      "region": "Memphis", "name": "Grizzlies", "abbrev": "MEM", "pop": 1.3, "strategy": "rebuilding",
+      "stadiumCapacity": 18119,
+      "imgURL": "https://i.imgur.com/tqx1JLi.png"
+  },
+  {
+      "tid": 15, "cid": 0, "did": 2,
+      "region": "Miami", "name": "Heat", "abbrev": "MIA", "pop": 5.6, "strategy": "contending",
+      "stadiumCapacity": 19600,
+      "imgURL": "http://i.imgur.com/bsyplzQ.png"
+  },
+  {
+      "tid": 16, "cid": 0, "did": 1,
+      "region": "Milwaukee", "name": "Bucks", "abbrev": "MIL", "pop": 1.6, "strategy": "contending",
+      "stadiumCapacity": 18717,
+      "imgURL": "http://i.imgur.com/DphT0BT.png"
+  },
+  {
+      "tid": 17, "cid": 1, "did": 4,
+      "region": "Minnesota", "name": "Timberwolves", "abbrev": "MIN", "pop": 3.6, "strategy": "contending",
+      "stadiumCapacity": 19356,
+      "imgURL": "http://fr.global.nba.com/media/img/teams/logos/MIN_logo.svg"
+  },
+  {
+      "tid": 18, "cid": 1, "did": 3,
+      "region": "New Orleans", "name": "Pelicans", "abbrev": "NOP", "pop": 1.3, "strategy": "rebuilding",
+      "stadiumCapacity": 16867,
+      "imgURL": "http://i.imgur.com/vB0C6GZ.png"
+  },
+  {
+      "tid": 19, "cid": 0, "did": 0,
+      "region": "New York", "name": "Knicks", "abbrev": "NYK", "pop": 20.3, "strategy": "lol",
+      "stadiumCapacity": 19812,
+      "imgURL": "http://i.imgur.com/5sMoAPA.png"
+  },
+  {
+      "tid": 20, "cid": 1, "did": 4,
+      "region": "Oklahoma City", "name": "Thunder", "abbrev": "OKC", "pop": 1.4, "strategy": "contending",
+      "stadiumCapacity": 18203,
+      "imgURL": "http://i.imgur.com/jiigdGx.png"
+  },
+  {
+      "tid": 21, "cid": 0, "did": 2,
+      "region": "Orlando", "name": "Magic", "abbrev": "ORL", "pop": 2.4, "strategy": "rebuilding",
+      "stadiumCapacity": 18846,
+      "imgURL": "http://i.imgur.com/yy0G5CW.png"
+  },
+  {
+      "tid": 22, "cid": 0, "did": 0,
+      "region": "Philadelphia", "name": "76ers", "abbrev": "PHI", "pop": 6.1, "strategy": "contending",
+      "stadiumCapacity": 20328,
+      "imgURL": "https://i.imgur.com/LfVzjKN.png"
+  },
+  {
+      "tid": 23, "cid": 1, "did": 5,
+      "region": "Phoenix", "name": "Suns", "abbrev": "PHX", "pop": 4.7, "strategy": "rebuilding",
+      "stadiumCapacity": 18422,
+      "imgURL": "http://i.imgur.com/hyi60nj.png"
+  },
+  {
+      "tid": 24, "cid": 1, "did": 4,
+      "region": "Portland", "name": "Trailblazers", "abbrev": "POR", "pop": 2.4, "strategy": "contending",
+      "stadiumCapacity": 19980,
+      "imgURL": "http://fr.global.nba.com/media/img/teams/logos/POR_logo.svg"
+  },
+  {
+      "tid": 25, "cid": 1, "did": 5,
+      "region": "Sacramento", "name": "Kings", "abbrev": "SAC", "pop": 2.1, "strategy": "rebuilding",
+      "stadiumCapacity": 17608,
+      "imgURL": "http://i.imgur.com/WgHr0BH.png"
+  },
+  {
+      "tid": 26, "cid": 1, "did": 3,
+      "region": "San Antonio", "name": "Spurs", "abbrev": "SAS", "pop": 2.5, "strategy": "contending",
+      "stadiumCapacity": 18418,
+      "imgURL": "http://fr.global.nba.com/media/img/teams/logos/SAS_logo.svg"
+  },
+  {
+      "tid": 27, "cid": 0, "did": 0,
+      "region": "Toronto", "name": "Raptors", "abbrev": "TOR", "pop": 5.9, "strategy": "contending",
+      "stadiumCapacity": 19800,
+      "imgURL": "http://i.imgur.com/prWiarY.png"
+  },
+  {
+      "tid": 28, "cid": 1, "did": 4,
+      "region": "Utah", "name": "Jazz", "abbrev": "UTA", "pop": 1.2, "strategy": "contending",
+      "stadiumCapacity": 18303,
+      "imgURL": "https://i.imgur.com/hgWL10y.png"
+  },
+  {
+      "tid": 29, "cid": 0, "did": 2,
+      "region": "Washington", "name": "Wizards", "abbrev": "WAS", "pop": 6.1, "strategy": "rebuilding",
+      "stadiumCapacity": 20356,
+      "imgURL": "http://i.imgur.com/KAX48d0.png"
+  }]
 
 router.get('/', (req, res, next) =>  {
     res.render('teams', { title: 'Teams', teams: teams});
