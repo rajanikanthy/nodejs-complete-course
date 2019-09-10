@@ -8,5 +8,31 @@ block content
       div(class='card')
         img(class="card-img-top" src=team.imgURL alt="Img Unavailable")
         div(class='card-body')
-          h5=team.name
+          table(class='table')
+            tr
+              td(scope='col')="Name"
+              td(scope='col')=team.name
+            tr
+              td(scope='col')="Abbrev"
+              td(scope='col')=team.abbrev
+            tr
+              td(scope='col')="Region"
+              td(scope='col')=team.region
+            tr
+              td(scope='col')="Population"
+              td(scope='col')=`${team.pop} (M)`
+            tr
+              td(scope='col')="Strategy"
+              td(scope='col')=team.strategy
+            tr
+              td(scope='col')="Std Capacity"
+              td(scope='col')=team.stadiumCapacity
+          ul(class='list-group')
+            li(class='list-group-item')
+             a(href=`/players?team=${team.tid}`)="Roster"
+            li(class='list-group-item')
+             a(href=`/metrics?team=${team.tid}`)="Metrics"
+            li(class="list-group-item")
+             a(href=`/teams/archive?team=${team.tid}`)="Archive"
+            
           

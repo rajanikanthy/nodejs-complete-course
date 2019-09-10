@@ -14,4 +14,15 @@ exports.PlayerService = class PlayerService {
         });
         return p;
     }
+
+    playersByTeam(tid) {
+        const p = [];
+        players.players.players.forEach(player => {
+            if (player.tid === tid) {
+                const pl = new Player.Player(player.tid, player.name, player.imgURL);
+                p.push(pl);
+            }
+        })
+        return p;
+    }
 }
