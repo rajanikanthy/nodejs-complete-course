@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  div(class="row")
+    each player in players.players
+     div(class="col-sm-3")
+      div(class='card')
+        img(class="card-img-top" src=player.imgURL alt="Img Unavailable")
+        div(class='card-body')
+          h5=player.name
