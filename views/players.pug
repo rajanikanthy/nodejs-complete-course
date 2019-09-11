@@ -16,3 +16,18 @@ block content
             tr
               td(scope='col')="Location"
               td(scope='col')=player.location
+            tr
+              if player.injury.toLowerCase() !== 'healthy'
+                td(scope='col')
+                  i(class="fas fa-user-injured")
+                td(scope='col')=player.injury
+              else
+                td(scope='col')
+                  i(class="fas fa-running")
+                td(scope='col')=player.injury
+          ul(class='list-group')
+            each award in player.awards
+              li(class='list-group-item')
+                div(class='d-flex w-100 justify-content-between')
+                  i(class="fas fa-award")
+                  p=`${award.type} - (${award.season})`
