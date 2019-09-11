@@ -9,7 +9,7 @@ exports.PlayerService = class PlayerService {
     listPlayers() {
         const p = [];
         players.players.players.forEach(player => {
-            const pl = new Player.Player(player.tid, player.name, player.imgURL);
+            const pl = new Player.Player(player.tid, player.name, player.born.year, player.born.loc, player.imgURL);
             p.push(pl);
         });
         return p;
@@ -19,7 +19,7 @@ exports.PlayerService = class PlayerService {
         const p = [];
         players.players.players.forEach(player => {
             if (player.tid === tid) {
-                const pl = new Player.Player(player.tid, player.name, player.imgURL);
+                const pl = new Player.Player(player.tid, player.name, player.born.year, player.born.loc, player.imgURL);
                 p.push(pl);
             }
         })
