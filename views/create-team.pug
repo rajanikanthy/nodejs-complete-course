@@ -4,26 +4,26 @@ block content
   h1= title
   div(class='card' style='width:30rem;')
     div(class='card-body')
-      form
-      .form-group
-        label(for='teamName') Team Name
-        input#teamName.form-control(type='text' aria-describedby='teamHelp' placeholder='Team Name', name='teamName')
-      .form-group
-        label(for='imageUrl') Logo
-        input#imageUrl.form-control(type='text' placeholder='Log Image URI', name="imageUrl")
-      .form-group
-        label(for='abbreviation') Abbreviation
-        input#abbreviation.form-control(type='text' placeholder='Abbreviation', name="abbrev")
-      .form-group
-        label(for='Region') Region
-        input#region.form-control(type='text' placeholder='Region', name="region")
-      .form-group
-        label(for='population') Population
-        input#population.form-control(type='text' placeholder='Population', name="population")
-      .form-group
-        label(for='startegy') Startegy
-        input#startegy.form-control(type='text' placeholder='Strategy', name="startegy")
-      .form-group
-        label(for='stadiumCapacity') Stadium Capacity
-        input#startegy.form-control(type='text' placeholder='Stadium Capacity', name="stadiumCapacity")
-      button.btn.btn-primary(type='submit') Create
+      form(method = 'post', action='/admin/teams/create-team')
+        .form-group
+          label(for='teamName') Team Name
+          input#teamName.form-control(type='text' aria-describedby='teamHelp' placeholder='Team Name', name='teamName')
+        .form-group
+          label(for='imageUrl') Logo
+          input#imageUrl.form-control(type='text' placeholder='Log Image URI', name="imageUrl")
+        .form-group
+          label(for='abbreviation') Abbreviation
+          input#abbreviation.form-control(type='text' placeholder='Abbreviation', name="abbrev")
+        .form-group
+          label(for='Region') Region
+          input#region.form-control(type='text' placeholder='Region', name="region")
+        .form-group
+          label(for='population') Population
+          input#population.form-control(type='text' placeholder='Population', name="population")
+        .form-group
+          label(for='startegy') Startegy
+          input#startegy.form-control(type='text' placeholder='Strategy', name="startegy")
+        .form-group
+          label(for='stadiumCapacity') Stadium Capacity
+          input#startegy.form-control(type='text' placeholder='Stadium Capacity', name="stadiumCapacity")
+        button.btn.btn-primary(type='submit') Create
