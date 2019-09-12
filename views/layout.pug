@@ -3,15 +3,17 @@ html
   head
     title= title
     link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm' crossorigin='anonymous')
-    link(rel='stylesheet', href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap")
-    link(rel='stylesheet', href='/stylesheets/style.css')
-
+    link(rel='stylesheet' href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap")
+    link(rel='stylesheet' href='/stylesheets/style.css')
+    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous')
     script(src='https://kit.fontawesome.com/2667181e6c.js')
-    
+
   body
     nav.navbar.navbar-expand-lg.navbar-light.bg-light
       a.navbar-brand(href='/teams') NBA
-      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.mr-auto
@@ -21,4 +23,15 @@ html
               span.sr-only (current)
           li.nav-item
             a.nav-link(href='/players') Players
+          li.nav-item
+            a.nav-link(href='/schedule') Schedule - 2020
+          li.nav-item.dropdown
+            a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+              | Admin
+            .dropdown-menu(aria-labelledby='navbarDropdown')
+              a.dropdown-item(href='/admin/teams/create-team') Create Team
+              a.dropdown-item(href='/admin/players/add-player') Add Player
+              .dropdown-divider
+              a.dropdown-item(href='#') Add Games
+              a.dropdown-item(href='#') Modify Schedule
     block content
