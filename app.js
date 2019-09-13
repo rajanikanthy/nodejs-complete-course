@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var teamsRouter = require('./routes/teams');
 var playersRouter = require('./routes/players');
 var adminRouter = require('./routes/admin');
+var sequelize = require('./database/index');
 
 var app = express();
 
@@ -27,6 +28,8 @@ app.use('/users', usersRouter);
 app.use('/teams', teamsRouter);
 app.use('/players', playersRouter);
 app.use('/admin', adminRouter);
+
+// app.use(sequelize);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
