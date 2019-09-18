@@ -8,9 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     location: DataTypes.TEXT,
     injury: DataTypes.TEXT
   }, {});
-  Player.associate = function(models) {
-    // associations can be defined here
-    Player.belongsToMany(Award, { through : 'PlayerAward'})
+  Player.associate = function (models) {
+    Player.hasMany(models.Award);
   };
   return Player;
 };

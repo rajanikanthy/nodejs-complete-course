@@ -6,7 +6,7 @@ block content
     each team in teams
      div(class="col-sm-2")
       div(class='card')
-        img(class="card-img-top" src=team.imgURL alt="Img Unavailable")
+        img(class="card-img-top" src=team.imgurl alt="Img Unavailable")
         div(class='card-body')
           table(class='table')
             tr
@@ -26,13 +26,13 @@ block content
               td(scope='col')=team.strategy
             tr
               td(scope='col')="Std Capacity"
-              td(scope='col')=team.stadiumCapacity
+              td(scope='col')=team.stadium
           ul(class='list-group')
             li(class='list-group-item')
-             a(href=`/players?team=${team.tid}`)="Roster"
+             a(href=`/players?team=${team.id}`)="Roster"
             li(class='list-group-item')
-             a(href=`/metrics?team=${team.tid}`)="Metrics"
+             a(href=`/metrics?team=${team.id}`)="Metrics"
             li(class="list-group-item")
-             a(href=`/teams/archive?team=${team.tid}`)="Archive"
+             a(href=`/teams/archive?team=${team.id}`)="Archive"
             
           

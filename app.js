@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 var teamsRouter = require('./routes/teams');
 var playersRouter = require('./routes/players');
 var adminRouter = require('./routes/admin');
-var sequelize = require('./database/index');
+var sequelize = require('./db/models/index');
 
 var app = express();
 

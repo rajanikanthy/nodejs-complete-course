@@ -9,7 +9,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       season: {
-        type: Sequelize.TEXT
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       type: {
         type: Sequelize.TEXT
@@ -21,6 +22,16 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      playerId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'Players'
+          },
+          key: 'id'
+        },
+        allowNull: true
       }
     });
   },

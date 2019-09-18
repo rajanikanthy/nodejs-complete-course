@@ -7,7 +7,9 @@ block content
       form(method='post', action='/admin/players/add-player')
         .form-group
           label(for='teamName') Team Name
-          input#teamName.form-control(type='text' aria-describedby='teamHelp' placeholder='Team Name', name='teamName')
+          select(class='form-control' id='teamName' name='teamName')
+            each team in teams
+              option(value=team.id)=team.name
         .form-group
           label(for='imageUrl') Image
           input#imageUrl.form-control(type='text' placeholder='Image URI', name="imageUrl")

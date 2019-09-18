@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  h1= title
+  div(class="row")
+     div(class="col-sm-3")
+      div(class='card')
+        div(class='card-header')
+          ul.nav.nav-pills.card-header-pills
+            li.nav-item
+                a.nav-link(href=`/players/${playerDetails.player.id}/awards`) Update Awards
+            li.nav-item
+                a.nav-link(href=`/players/${playerDetails.player.id}/bodystats`) Edit Body Stats
+        img(class="card-img-top" src=playerDetails.player.imgURL alt="Img Unavailable")
+        div(class='card-body')
+          h5=playerDetails.player.name
+          table(class='table')
+            tr
+              td(scope='col')="DOB (Year)"
+              td(scope='col')=playerDetails.player.dob
+            tr
+              td(scope='col')="Location"
+              td(scope='col')=playerDetails.player.location
+            tr
+              if playerDetails.player.injury.toLowerCase() !== 'healthy'
+                td(scope='col')
+                  i(class="fas fa-user-injured")
+                td(scope='col')=playerDetails.player.injury
+              else
+                td(scope='col')
+                  i(class="fas fa-running")
+                td(scope='col')=playerDetails.player.injury
+          if playerDetails.awards.length !== 0
+            ul(class='list-group')
+              li(class='list-group-item')
+                each award in playerDetails.awards
+                  p=`${award.season}-${award.type}`

@@ -26,8 +26,5 @@ block content
                   i(class="fas fa-running")
                 td(scope='col')=player.injury
           ul(class='list-group')
-            each award in player.awards
-              li(class='list-group-item')
-                div(class='d-flex w-100 justify-content-between')
-                  i(class="fas fa-award")
-                  p=`${award.type} - (${award.season})`
+            li(class='list-group-item')
+             a(href=`/players/details?playerId=${player.id}`)="View More Details"

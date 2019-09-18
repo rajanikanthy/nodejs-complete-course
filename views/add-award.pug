@@ -1,0 +1,15 @@
+extend layout
+
+block content
+  h1=title
+  div(class='card' style='width:30rem;')
+    div(class='card-body')
+        form
+        .form-group
+            label(for='season') Season
+            input#season.form-control(type='text' aria-describedby='seasonHelp' placeholder='Season' name='season')
+        .form-group
+            label(for='awardType') Award Type
+            input#awardType.form-control(type='text' placeholder='Award Type' name='awardType')
+        .input(type=hidden value=player.playerId)
+        button.btn.btn-primary(type='submit') Submit

@@ -1,10 +1,9 @@
     const TeamService = require('../services/TeamService')
 
     exports.listTeams = (req, res, next) =>  {
-        const teamService = new TeamService.TeamService();
-        res.render('teams', { title: 'Teams', teams: teamService.listTeams()});
+        const teamService = new TeamService();
+        teamService.listTeams().then( teams => {
+            console.log(teams);
+            return res.render('teams', { title: 'Teams', teams: teams});
+        });
     };
-
-    exports.createTeam = (req, res, next) => {
-        res.render('create-team', { title: 'Create Team'});
-    }

@@ -1,49 +1,50 @@
-const Player = require('../models/player');
-const players = require('../data/player-data');
-const Award = require('../models/award');
+const models = require('../db/models')
 
-exports.PlayerService = class PlayerService {
+module.exports = class PlayerService {
     constructor() {
+    }
 
+    createPlayer(player) {
+        return models.Player.create(player);
     }
 
     listPlayers() {
-        const p = [];
-        players.players.players.forEach(player => {
-            let awards = [];
-            if (player.awards !== undefined) {
-                player.awards.forEach((award) => {
-                    awards.push(new Award.Award(award.season, award.type));
-                });
-            }
-            var injury = 'Healthy';
-            if (player.injury !== undefined) {
-                injury = player.injury.type;
-            }
-            const pl = new Player.Player(player.tid, player.name, player.born.year, player.born.loc, awards, injury, player.imgURL);
-            p.push(pl);
-        });
-        return p;
+        return models.Player.findAll();
     }
 
     playersByTeam(tid) {
-        const p = [];
-        players.players.players.forEach(player => {
-            if (player.tid === tid) {
-                let awards = [];
-                if (player.awards !== undefined) {
-                    player.awards.forEach((award) => {
-                        awards.push(new Award.Award(award.season, award.type));
-                    });
-                }
-                var injury = 'Healthy';
-                if (player.injury !== undefined) {
-                    injury = player.injury.type;
-                }
-                const pl = new Player.Player(player.tid, player.name, player.born.year, player.born.loc, awards, injury, player.imgURL);
-                p.push(pl);
+        return models.Player.findAll({
+            where: { tid : tid }
+        });
+    }
+
+    playerDetails(playerId) {
+        const playerDetails = {};
+        return models.Player.findOne({
+            where: {
+                id: playerId
             }
         })
-        return p;
+            .then(player => {
+                return player.getAwards()
+                    .then(awards => {
+                        console.log(awards);
+                        playerDetails.player = player;
+                        playerDetails.awards = awards;
+                        return playerDetails;
+                    })
+            })
+            .error( err => console.log(err));
+    }
+
+    addAward(playerId, award) {
+        return models.Player.findOne({
+            where :{
+                id: playerId
+            }
+        })
+        .then( player => {
+            return player.addAward(award);
+        });
     }
 }
