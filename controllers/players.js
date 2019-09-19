@@ -12,8 +12,8 @@ exports.listPlayers = (req, res, next) => {
         console.log(req.query.team);
         const playerService = new PlayerService();
         ps.playersByTeam(parseInt(req.query.team))
-            .then( players => {
-                res.render('players', { title: 'Players', players: players})
+            .then(players => {
+                res.render('players', { title: 'Players', players: players })
             })
             .catch(err => console.log(err));
     }
@@ -21,12 +21,12 @@ exports.listPlayers = (req, res, next) => {
 
 exports.playerDetails = (req, res, next) => {
     const ps = new PlayerService();
-    ps.playerDetails(parseInt(req.query.playerId))
-        .then( playerDetails => {
+    ps.playerDetails(parseInt(req.params.playerId))
+        .then(playerDetails => {
             console.log("Player details ---");
             console.log(playerDetails.awards[0]);
-            res.render('player-details', { 
-                title: 'Player Details - ' + playerDetails.player.name, 
+            res.render('player-details', {
+                title: 'Player Details - ' + playerDetails.player.name,
                 playerDetails: playerDetails
             });
         })
@@ -38,7 +38,7 @@ exports.getAwardsByPlayer = (req, res, next) => {
     ps.playerDetails(parseInt(req.params.playerId))
         .then(playerDetails => {
             res.render('show-awards', {
-                title : 'Player - ' + playerDetails.player.name + ' - Awards',
+                title: 'Player - ' + playerDetails.player.name + ' - Awards',
                 awards: playerDetails.awards,
                 player: playerDetails.player
             });
@@ -50,7 +50,7 @@ exports.showAwardsView = (req, res, next) => {
     ps.playerDetails(parseInt(req.params.playerId))
         .then(playerDetails => {
             res.render('add-award', {
-                title : 'Player - ' + playerDetails.player.name + ' - Awards',
+                title: 'Player - ' + playerDetails.player.name + ' - Awards',
                 awards: playerDetails.awards,
                 player: playerDetails.player
             });
@@ -59,4 +59,15 @@ exports.showAwardsView = (req, res, next) => {
 
 exports.addAward = (req, res, next) => {
     const ps = new PlayerService();
+    const playerId = req.params.playerId;
+    const season = parseInt(req.body.season);
+    const type = req.body.awardType;
+    const newAward = {};
+    newAward.season = season;
+    newAward.type = type;
+    console.log(newAward);
+    return ps.addAward(playerId, newAward)
+        .then(details => {
+            res.redirect('/players/' + details.player.id + '/awards');
+        })
 }

@@ -1,4 +1,5 @@
 const models = require('../db/models')
+const AwardService = require('../services/AwardService');
 
 module.exports = class PlayerService {
     constructor() {
@@ -16,6 +17,14 @@ module.exports = class PlayerService {
         return models.Player.findAll({
             where: { tid : tid }
         });
+    }
+
+    playerById(playerId) {
+        return models.Player.findOne({
+            where : {
+                'id' : playerId
+            }
+        })
     }
 
     playerDetails(playerId) {
@@ -38,13 +47,20 @@ module.exports = class PlayerService {
     }
 
     addAward(playerId, award) {
+        const details = {};
         return models.Player.findOne({
-            where :{
+            where : {
                 id: playerId
             }
         })
-        .then( player => {
-            return player.addAward(award);
-        });
+        .then(player => {
+            details.player = player;
+            return player.createAward(award);
+        })
+        .then( award => {
+            details.award = award;
+            return details;
+        })
+        .catch(err => console.log(err));
     }
 }
